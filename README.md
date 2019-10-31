@@ -1,2 +1,3 @@
 # BezierPath
-Bezier Path exercise, see below for resource and credits
+Bezier Path exercise for starters following the below tutorial on appcoda.com.
+https://www.appcoda.com/bezier-paths-introduction/
