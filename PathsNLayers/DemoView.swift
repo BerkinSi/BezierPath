@@ -23,24 +23,39 @@ class DemoView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-//        self.createRectangle()
-//        self.createTriangle()
-        
-        // Create an oval shape path.
-//        self.path = UIBezierPath(ovalIn: self.bounds)
-        
-        //Create a circle, using ovalIn
-        self.path = UIBezierPath(ovalIn: CGRect(x: self.frame.size.width/2 - self.frame.size.height/2,
-        y: 0.0,
-        width: self.frame.size.height,
-        height: self.frame.size.height))
-        
+        //Create a rect that only has two rounded corners
+        self.createRectangleWithTwoRoundedCorners()
+
         UIColor.orange.setFill()
         path.fill()
 
         // Specify a border (stroke) color.
         UIColor.purple.setStroke()
         path.stroke()
+    }
+    
+    func createOvall() {
+        self.path = UIBezierPath(ovalIn: self.bounds)
+    }
+    
+    func createCircle() {
+        //Create a circle, using ovalIn
+        self.path = UIBezierPath(ovalIn: CGRect(x: self.frame.size.width/2 - self.frame.size.height/2,
+            y: 0.0,
+            width: self.frame.size.height,
+            height: self.frame.size.height))
+    }
+    
+    func createRoundedCornerRectangle() {
+                //Create a rounded corner rectangular
+        path = UIBezierPath(roundedRect: self.bounds, cornerRadius: 15.0)
+    }
+    
+    func createRectangleWithTwoRoundedCorners() {
+        //Create a rect that only has two rounded corners
+        path = UIBezierPath(roundedRect: self.bounds,
+        byRoundingCorners: [.topLeft, .bottomRight],
+        cornerRadii: CGSize(width: 15.0, height: 0.0))
     }
 
     func createRectangle() {
