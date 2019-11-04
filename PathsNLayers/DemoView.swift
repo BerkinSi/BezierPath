@@ -15,7 +15,7 @@ class DemoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.darkGray
+        self.backgroundColor = UIColor.clear
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,10 +24,11 @@ class DemoView: UIView {
     
     override func draw(_ rect: CGRect) {
         self.createRectangle()
+        self.createTriangle()
         
         UIColor.orange.setFill()
         path.fill()
-        
+
         // Specify a border (stroke) color.
         UIColor.purple.setStroke()
         path.stroke()
@@ -51,6 +52,24 @@ class DemoView: UIView {
      
         // Close the path. This will create the last line automatically.
         path.close()
+    }
+    
+    func createTriangle() {//Do It Yourself
+        //Initialize the path
+        path = UIBezierPath()
+        
+        //Set starting point
+        path.move(to: CGPoint(x: self.frame.width/2, y: 0.0))
+        
+        //Add Line to lower left corner
+        path.addLine(to: CGPoint(x: 0.0, y: self.frame.height))
+        
+        //Add Line to lower right corner
+        path.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height))
+        
+        //Close the path.
+        path.close()
+        
     }
 
 }
