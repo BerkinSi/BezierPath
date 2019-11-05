@@ -24,7 +24,7 @@ class DemoView: UIView {
     
     override func draw(_ rect: CGRect) {
         //Create a rect that only has two rounded corners
-        self.createRectangleWithTwoRoundedCorners()
+        self.createArc()
 
         UIColor.orange.setFill()
         path.fill()
@@ -32,6 +32,14 @@ class DemoView: UIView {
         // Specify a border (stroke) color.
         UIColor.purple.setStroke()
         path.stroke()
+    }
+    
+    func createArc() {
+        path = UIBezierPath(arcCenter: CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2),
+                            radius: self.frame.size.height/2,
+                            startAngle: CGFloat(180.0).toRadians(),
+                            endAngle: CGFloat(0.0).toRadians(),
+                            clockwise: true)
     }
     
     func createOvall() {
@@ -96,4 +104,10 @@ class DemoView: UIView {
         
     }
 
+}
+
+extension CGFloat {
+    func toRadians() -> CGFloat {
+        return self * CGFloat(Double.pi) / 180.0
+    }
 }
