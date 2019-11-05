@@ -15,7 +15,8 @@ class DemoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.darkGray
+        simpleShapeLayer()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,15 +24,28 @@ class DemoView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        //Create a rect that only has two rounded corners
-        self.createArc()
-
-        UIColor.orange.setFill()
-        path.fill()
-
-        // Specify a border (stroke) color.
-        UIColor.purple.setStroke()
-        path.stroke()
+//        //Create a rect that only has two rounded corners
+//        self.createArc()
+//
+//        UIColor.orange.setFill()
+//        path.fill()
+//
+//        // Specify a border (stroke) color.
+//        UIColor.purple.setStroke()
+//        path.stroke()
+    }
+    
+    func simpleShapeLayer() {
+        self.createRectangle()
+     
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = self.path.cgPath
+        
+        shapeLayer.fillColor = UIColor.yellow.cgColor
+        shapeLayer.strokeColor = UIColor.brown.cgColor
+        shapeLayer.lineWidth = 3.0
+     
+        self.layer.addSublayer(shapeLayer)
     }
     
     func createArc() {
