@@ -66,6 +66,10 @@ class DemoView: UIView {
         
         shapeLayer2.position = CGPoint(x: width/2, y: height)
         shapeLayer1.position = CGPoint(x: width/2, y: 0.0)
+        
+        shapeLayer1.bounds.origin = CGPoint(x: 0.0, y: 0.0)
+        shapeLayer1.bounds.size = CGSize(width: 200.0, height: 150.0)
+        shapeLayer1.backgroundColor = UIColor.magenta.cgColor
     }
     
     func shapeLayerAsMask() {
