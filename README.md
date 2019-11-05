@@ -26,9 +26,9 @@ https://www.appcoda.com/bezier-paths-introduction/
                               endAngle: CGFloat(0.0).toRadians(),
                               clockwise: true)
                               
-arcCenter is obviously the center of the circle.
-Every parameter really can be explained by its name.
-Only thing that should be remembered is 270 degrees is in ios is at 90 degrees  in normal coordinate system, and vice versa.
+  arcCenter is obviously the center of the circle.
+  Every parameter really can be explained by its name.
+  Only thing that should be remembered is 270 degrees is in ios is at 90 degrees  in normal coordinate system, and vice versa.
 
 8. Using draw function is not good in terms of performance, so in order to create shapes, we use CAShapeLayer() class.
 After creating the Bezier Path, we simpliy create a CAShapeLayer instance and set its path to the paths cgPath
@@ -38,8 +38,8 @@ After creating the Bezier Path, we simpliy create a CAShapeLayer instance and se
 9. Shape layer can be added to view either as mask or sublayer. if it is added as mask, it hides the view. If it is added as sublayer, it does not hide.
 
 10. Two or more shapes can be added to same view as sublayers, their position can be arranged with CAShapeLayer.position property.
-However, you shouldn’t access the frame property, but the bounds property of the sublayer.
+  However, you shouldn’t access the frame property, but the bounds property of the sublayer.
 
-According to the documentation, the bounds property expresses the origin and size of the sublayer in its own coordinate system.
+  According to the documentation, the bounds property expresses the origin and size of the sublayer in its own coordinate   system.
 
  
