@@ -15,8 +15,9 @@ class DemoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.darkGray
-        simpleShapeLayer()
+        self.backgroundColor = UIColor.green
+//        simpleShapeLayer()
+        maskVsSublayer()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,6 +34,18 @@ class DemoView: UIView {
 //        // Specify a border (stroke) color.
 //        UIColor.purple.setStroke()
 //        path.stroke()
+    }
+    
+    func maskVsSublayer() {
+        self.createTriangle()
+     
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.yellow.cgColor
+     
+        // self.layer.addSublayer(shapeLayer)
+        
+           self.layer.mask = shapeLayer
     }
     
     func simpleShapeLayer() {
