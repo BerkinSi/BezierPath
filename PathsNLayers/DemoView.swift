@@ -15,11 +15,11 @@ class DemoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.darkGray
+        self.backgroundColor = UIColor.clear
 //        simpleShapeLayer()
 //        shapeLayerAsMask()
 //        twoShapes()
-        complexShape()
+//        complexShape()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,13 +29,14 @@ class DemoView: UIView {
     override func draw(_ rect: CGRect) {
 //        //Create a rect that only has two rounded corners
 //        self.createArc()
-//
-//        UIColor.orange.setFill()
-//        path.fill()
+          self.createCurve()
+        
+        UIColor.orange.setFill()
+        path.fill()
 //
 //        // Specify a border (stroke) color.
-//        UIColor.purple.setStroke()
-//        path.stroke()
+        UIColor.purple.setStroke()
+        path.stroke()
     }
     
     func complexShape() {
@@ -121,6 +122,20 @@ class DemoView: UIView {
         shapeLayer.lineWidth = 3.0
      
         self.layer.addSublayer(shapeLayer)
+    }
+    
+    func createCurve() {
+        // Initialize the path.
+        path = UIBezierPath()
+        
+        // Specify the point that the path should start get drawn.
+        path.move(to: CGPoint(x: 0.0, y: 0.0))
+        
+        path.addCurve(to: CGPoint(x: self.frame.size.width, y: 50.0),
+        controlPoint1: CGPoint(x: self.frame.size.width + 50.0, y: 25.0),
+        controlPoint2: CGPoint(x: self.frame.size.width - 150.0, y: 50.0))
+        
+        path.close()
     }
     
     func createArc() {
