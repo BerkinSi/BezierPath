@@ -43,4 +43,6 @@ After creating the Bezier Path, we simpliy create a CAShapeLayer instance and se
 
   According to the documentation, the bounds property expresses the origin and size of the sublayer in its own coordinate   system.
 
- 
+11. Multiple functions can be used to create more complex shapes.
+
+12. AddCurve function explained: https://developer.apple.com/documentation/uikit/uibezierpath/1624357-addcurve
