@@ -15,11 +15,12 @@ class DemoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.darkGray
 //        simpleShapeLayer()
 //        shapeLayerAsMask()
 //        twoShapes()
 //        complexShape()
+        createTextLayer()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,14 +30,14 @@ class DemoView: UIView {
     override func draw(_ rect: CGRect) {
 //        //Create a rect that only has two rounded corners
 //        self.createArc()
-          self.createCurve()
+//          self.createCurve()
         
-        UIColor.orange.setFill()
-        path.fill()
+//        UIColor.orange.setFill()
+//        path.fill()
 //
 //        // Specify a border (stroke) color.
-        UIColor.purple.setStroke()
-        path.stroke()
+//        UIColor.purple.setStroke()
+//        path.stroke()
     }
     
     func complexShape() {
@@ -122,6 +123,19 @@ class DemoView: UIView {
         shapeLayer.lineWidth = 3.0
      
         self.layer.addSublayer(shapeLayer)
+    }
+  
+    func createTextLayer() {
+        let textLayer = CATextLayer()
+        textLayer.string = "WOW!\nThis is text on a layer!"
+        textLayer.foregroundColor = UIColor.white.cgColor
+        textLayer.font = UIFont(name: "Avenir", size: 15.0)
+        textLayer.fontSize = 15.0
+        textLayer.alignmentMode = CATextLayerAlignmentMode.center
+        textLayer.backgroundColor = UIColor.orange.cgColor
+        textLayer.frame = CGRect(x: 0.0, y: self.frame.size.height/2 - 20.0, width: self.frame.size.width, height: 40.0)
+        textLayer.contentsScale = UIScreen.main.scale
+        self.layer.addSublayer(textLayer)
     }
     
     func createCurve() {
